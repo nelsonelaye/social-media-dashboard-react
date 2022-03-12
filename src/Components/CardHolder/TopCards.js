@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import BigCard from "../Card/BigCard"
-
+import {FaToggleOff, FaToggleOn} from "react-icons/fa"
 import facebook from "../../img/icon-facebook.svg"
 import twitter from "../../img/icon-twitter.svg"
 import instagram from "../../img/icon-instagram.svg"
@@ -11,7 +11,17 @@ import down from "../../img/icon-down.svg"
 import up from "../../img/icon-up.svg"
 import on from "../../img/on.png"
 
-function TopCards() {
+function TopCards(props ) {
+
+  const changeTheme = ()=> {
+    if(props.myTheme === "light") {
+      props.setMyTheme("dark")
+    } else{
+      props.setMyTheme("light")
+    }
+  }
+
+  // {props.myTheme === "light" ? <FaToggleOff onClick={changeTheme} /> : <FaToggleOn onClick={changeTheme} />}
   return (
     <Wrapper>
       <ShortBg></ShortBg>
@@ -24,7 +34,8 @@ function TopCards() {
           </Text>
           <Switch>
             <Det>Dark Mode</Det>
-            <Toggle src={on} alt="toggle button" />
+            {/* <FaToggleOn onClick={changeTheme} /> */}
+            <Toggle src={on} alt="Switch button" onClick={changeTheme}/>
           </Switch>
             
         </Headline>
@@ -81,13 +92,16 @@ function TopCards() {
 export default TopCards;
 
 const Wrapper = styled.div`
+  background-color:${props => props.theme.pageBaground};
   display:flex;
   flex-direction: column;
   align-items:center;
+  transition: all .35s ease-in;
 `
 
 const ShortBg = styled.div`
-  background-color:#F8F9FE;
+  background-color:${props => props.theme.topBox};
+  transition: all .35s ease-in;
   height:250px;
   position: absolute;
   top:0px;
@@ -103,7 +117,8 @@ const Headline = styled.div`
   flex-direction: row;
   justify-content:space-between;
   width:100%;
- 
+  color:${props => props.theme.whiteText};
+  transition: all .35s ease-in;
 `
 
 const Text = styled.div`
@@ -143,4 +158,5 @@ const CardHolder = styled.div`
   display:flex;
   align-items: center;
   justify-content: center;
+  /* flex-wrap: wrap; */
 `

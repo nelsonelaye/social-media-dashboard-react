@@ -22,7 +22,7 @@ function BigCard({brColor, socialicon, username, number, followers, icon, day, d
 export default BigCard;
 
 const CardHolder = styled.div`
-    background-color:#F0F3FA;
+    background-color:${props => props.theme.cardColor};
     width: 260px;
     display: flex;
     margin: 15px;
@@ -31,6 +31,7 @@ const CardHolder = styled.div`
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-top: ${({brColor}) => brColor};
     border-radius: 8px;
+    transition: all .35s ease-in;
 `
 
 const SocialProfile = styled.div`
@@ -48,14 +49,18 @@ const SocialIcon = styled.img`
 
 const UserName = styled.div`
     margin: 5px;
-    color:#1D2029;
+    color:${props => props.theme.greyText};
     font-weight:600;
+    transition: all .35s ease-in;
 
 `
 const Number = styled.div`
     font-size:50px;
     font-weight: 700;
     margin: 0px;
+    color:${props => props.theme.whiteText};
+    transition: all .35s ease-in;
+
 `
 
 const Followers = styled.div`
@@ -64,6 +69,9 @@ const Followers = styled.div`
     letter-spacing: 4px;
     margin-top: -8px;
     text-transform: uppercase;
+    color:${props => props.theme.greyText};
+    transition: all .35s ease-in;
+
 `
 const Analysis = styled.div`
     display:flex;
@@ -80,4 +88,5 @@ const Day = styled.div`
     margin: 5px;
     color: ${({dayColor}) => dayColor};
     font-weight: 650;
+    transition: all .35s ease-in;
 `

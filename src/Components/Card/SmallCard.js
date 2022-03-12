@@ -21,7 +21,7 @@ function SmallCard({view, socialIcon,number, icon, pColor, percent}) {
 export default SmallCard;
 
 const Holder = styled.div`
- background-color:#F0F3FA;
+    background-color:${props => props.theme.cardColor};
     width: 239.8px;
     display: flex;
     margin: 15px;
@@ -30,6 +30,7 @@ const Holder = styled.div`
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 8px;
+    transition: all .35s ease-in;
 `
 const FirstRow = styled.div`
     display: flex;
@@ -59,6 +60,8 @@ const Number = styled.div`
     font-size:25px;
     font-weight: 700;
     margin: 0px;
+    color:${props => props.theme.whiteText};
+    transition: all .35s ease-in;
 `
 
 const Analysis = styled.div`
@@ -72,4 +75,5 @@ const Percent = styled.div`
     color: ${({pColor}) => pColor};
     font-weight: 650;
     font-size:12px;
+    transition: all .35s ease-in;
 `

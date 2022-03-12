@@ -7,7 +7,16 @@ import instagram from "../../img/icon-instagram.svg"
 import youtube from "../../img/icon-youtube.svg"
 import up from "../../img/icon-up.svg"
 import down from "../../img/icon-down.svg"
-function BottomCard() {
+
+function BottomCard(props ) {
+
+  const changeTheme = ()=> {
+    if(props.myTheme === "light") {
+      props.setMyTheme("dark")
+    } else{
+      props.setMyTheme("light")
+    }
+  }
   return (
     <Wrapper>
         <Hold>
@@ -95,11 +104,12 @@ function BottomCard() {
 export default BottomCard;
 
 const Wrapper = styled.div`
-    margin-top: 30px;
+    /* margin-top: 30px; */
     display:flex;
     align-items: center;
     flex-direction: column;
- 
+  background-color:${props => props.theme.pageBaground};
+  transition: all .35s ease-in;
 `
 
 const Hold = styled.div`
@@ -119,7 +129,6 @@ const Title = styled.div`
 
 const CardHolder = styled.div`
   display:flex;
-  
   flex-wrap: wrap;
 `
 

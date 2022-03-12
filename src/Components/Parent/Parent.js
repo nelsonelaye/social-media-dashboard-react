@@ -1,11 +1,11 @@
 import TopCards from "../CardHolder/TopCards"
 import BottomCard from "../CardHolder/BottomCard"
 
-function Parent() {
+function Parent({myTheme, setMyTheme}) {
   return (
     <div >
-      <TopCards/>
-      <BottomCard/>
+      <TopCards setMyTheme={setMyTheme} myTheme={myTheme}  />
+      <BottomCard setMyTheme={setMyTheme} myTheme={myTheme}  />
     </div>
   );
 }
